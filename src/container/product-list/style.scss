@@ -1,0 +1,109 @@
+@use '../../lib/service.scss' as s;
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: s.space(6);
+}
+
+.link {
+    text-decoration: none;
+}
+
+.id {
+    color: s.color("light");
+}
+
+.form{
+    width: 1000px;
+    display:flex;
+    padding: s.space(4);
+    margin: 0 auto;
+    flex-direction: column;
+    gap: s.space(8);
+
+    &__title {
+        font-size: 20px;
+        color: s.color("primary");
+        font-weight: bold;
+        padding-bottom: s.space(1);
+    }
+
+    &__subtitle {
+        font-weight: 700;
+    }
+
+    &__content {
+        display: grid;
+        gap: s.space(6);
+        border: 2px solid s.color("light");
+        border-radius: 8px;
+        padding: s.space(4);
+        box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.10);
+
+        &--main {
+            display:flex;
+            justify-content: space-between;
+            gap: s.space(4);
+        }
+
+        &--buttons {
+            width: 100%;
+            display:flex;
+            justify-content: space-between;
+            gap: s.space(4);
+        }
+
+    }
+
+    &__field {
+        width: 100%;
+        position: relative;
+    }
+
+    &__label {
+        font-size: 14px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(10px, 10px);
+        transform-origin: left;
+        transition: transform 200ms;
+    }
+
+    &__input {
+        width: 100%;
+        flex: 1;
+        box-sizing: border-box;
+        padding: s.space(2) - 2px;
+        border: 2px solid s.color("light");
+        border-radius: 4px;
+        background-color: transparent;
+        transition: border-color 250ms;
+    }
+
+    &__input:focus {
+        border-color: s.color("primary");
+    }
+
+    &__input:focus + &__label,
+    &__input:valid + &__label {
+        transform: translate(0, -20px) scale(0.8);
+    }
+
+    &__button {
+        width: 100%;
+        padding: s.space(2);
+        border-radius: 4px;
+        background-color: s.color("primary");
+        color: white;
+        text-decoration:none;
+        text-align: center;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(10);
+}
